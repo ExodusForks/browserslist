@@ -1,6 +1,11 @@
 var jsReleases = require('node-releases/data/processed/envs.json')
 var agents = require('caniuse-lite/dist/unpacker/agents').agents
-var e2c = require('electron-to-chromium/versions')
+var e2c = Object.create(null)
+try {
+  e2c = require('electron-to-chromium/versions')
+} catch (e) {
+  if (e.code !== 'MODULE_NOT_FOUND') throw e
+}
 var jsEOL = require('node-releases/data/release-schedule/release-schedule.json')
 var path = require('path')
 
@@ -499,7 +504,7 @@ browserslist.aliases = {
 // Fallback to a similar browser for unknown versions
 // Note op_mob is not included as its chromium versions are not in sync with Opera desktop
 browserslist.desktopNames = {
-  __proto_: null,
+  __proto__: null,
   and_chr: 'chrome',
   and_ff: 'firefox',
   ie_mob: 'ie',
