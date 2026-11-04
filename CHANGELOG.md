@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 4.24.4-rc.2
+* Load `electron-to-chromium` data only when that package is installed; electron queries match nothing without it.
+* Fixed the `__proto_` typo in `desktopNames`.
+
 ## 4.24.4
 * Improved performance by using caching better (by @thoughtspile).
 
